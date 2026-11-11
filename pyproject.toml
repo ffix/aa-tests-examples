@@ -1,0 +1,26 @@
+[project]
+name = "tests"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "hypothesis==6.146.0",
+    "pytest==8.4.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["tasks", "practice-morse", "policy/src"]
+testpaths = [
+    "tasks/tests/test_count_letters_pytest.py",
+    "tasks/tests/test_count_letters_pytest_parametric.py",
+    "tasks/tests/test_count_letters_pytest_fixtures_1.py",
+    "tasks/tests/test_shared_report.py",
+    "tasks/tests/test_fixture_tools.py",
+    "extra/test_sort.py",
+    "policy/tests/test_policy.py",
+]
+
+[tool.mutmut]
+paths_to_mutate = ["policy/src/"]
+pytest_add_cli_args_test_selection = ["policy/tests/"]
